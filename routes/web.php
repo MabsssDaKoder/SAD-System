@@ -1,0 +1,45 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LaundryController;
+
+
+
+// ── Login ────────────────────────────────────────────────────────────────────
+Route::get('/', function () {
+    return view('login');
+});
+
+// ── Admin ────────────────────────────────────────────────────────────────────
+Route::get('/admin/shop-management', function () {
+    return view('admin.shop-management');
+});
+Route::get('/admin/update-template', function () {
+    return view('admin.update-template');
+});
+Route::get('/admin/inventory', function () {
+    return view('admin.inventory-management');
+});
+Route::get('/admin/reports', function () {
+    return view('admin.reports');
+});
+Route::get('/admin/account-management', function () {
+    return view('admin.account-management');
+});
+
+// ── Public Queue ─────────────────────────────────────────────────────────────
+Route::get('/queue-status',      [LaundryController::class, 'publicQueue'])->name('public.queue');
+Route::get('/queue/json', [LaundryController::class, 'publicOrdersJson'])->name('public.queue.json');
+
+// ── Staff ────────────────────────────────────────────────────────────────────
+Route::get('/staff/inventory', function () {
+    return view('staff.staff-inventory-management');
+});
+
+Route::prefix('staff')->name('staff.')->group(function () {
+    Route::get('/new-laundry',              [LaundryController::class, 'create'])->name('new-laundry');
+    Route::post('/laundry',                 [LaundryController::class, 'store'])->name('laundry.store');
+    Route::get('/queue',                    [LaundryController::class, 'staffQueue'])->name('queue');
+    Route::get('/queue/json',               [LaundryController::class, 'ordersJson'])->name('queue.json');
+    Route::patch('/laundry/{order}/status', [LaundryController::class, 'updateStatus'])->name('laundry.status');
+});
