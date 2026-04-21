@@ -29,19 +29,19 @@
     <div class="stats-bar">
         <div class="stat-chip">
             <span class="stat-dot" style="background:var(--pending)"></span>
-            Pending <span class="stat-count" id="stat-pending">0</span>
+            Pending <span class="stat-count" id="stat-pending"></span>
         </div>
         <div class="stat-chip">
             <span class="stat-dot" style="background:var(--processing)"></span>
-            Processing <span class="stat-count" id="stat-processing">0</span>
+            Processing <span class="stat-count" id="stat-processing"></span>
         </div>
         <div class="stat-chip">
             <span class="stat-dot" style="background:var(--complete)"></span>
-            Complete <span class="stat-count" id="stat-complete">0</span>
+            Complete <span class="stat-count" id="stat-complete"></span>
         </div>
         <div class="stat-chip">
             <span class="stat-dot" style="background:var(--rush)"></span>
-            Rush Orders <span class="stat-count" id="stat-rush">0</span>
+            Rush Orders <span class="stat-count" id="stat-rush">    </span>
         </div>
     </div>
 

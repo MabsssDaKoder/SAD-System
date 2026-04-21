@@ -1,63 +1,43 @@
 /* ═══════════════════════════════════════════
-   WashDepot — Global CSS Variables
-   Add this at the top of every CSS file
-   OR link this as the first stylesheet
+   WashDepot — variables.css
    Place in: public/css/variables.css
 ═══════════════════════════════════════════ */
 
 :root {
-    /* ── Brand Colors ── */
-    --navy:        #0d2137;   /* primary dark background */
-    --navy-mid:    #1a2a3a;   /* sidebar, cards */
-    --navy-light:  #1e3a5f;   /* topbar, secondary bg */
-    --blue:        #2d6abf;   /* active states */
-    --blue-bright: #2563eb;   /* buttons, actions */
-    --blue-hover:  #1d4ed8;   /* button hover */
-    --teal:        #0e7fa3;   /* accent */
-    --teal-light:  #19afd4;   /* accent light */
+    /* Colors */
+    --navy:         #111827;
+    --navy-mid:     #1a2840;
+    --navy-light:   #1e3a5f;
+    --blue:         #2d6abf;
+    --blue-dim:     #1d4fa8;
+    --red:          #e74c3c;
+    --green:        #22c55e;
+    --white:        #ffffff;
+    --bg:           #f0f4f8;
 
-    /* ── Neutral Colors ── */
-    --bg:          #f0f4f8;   /* main content background */
-    --bg-muted:    #e8f0f7;   /* card inner backgrounds */
-    --bg-soft:     #d1dce8;   /* subtle fills */
-    --white:       #ffffff;
-    --border:      #e5e7eb;
-    --mist:        #cce8f2;
+    /* Text */
+    --text-white:   #ffffff;
+    --text-light:   #aab4c8;
+    --text-mid:     #cbd5e1;
+    --text-dark:    #1a2840;
 
-    /* ── Text Colors ── */
-    --text-dark:   #0d2137;
-    --text-mid:    #333333;
-    --text-muted:  #6b7280;
-    --text-light:  #aaaaaa;
-    --text-white:  #ffffff;
+    /* Typography */
+    --font:         'Mulish', sans-serif;
+    --fs-xs:        11px;
+    --fs-sm:        12px;
+    --fs-base:      13px;
+    --fs-md:        14px;
+    --fs-lg:        16px;
+    --fs-xl:        18px;
+    --fs-2xl:       22px;
 
-    /* ── Status Colors ── */
-    --green:       #27ae60;
-    --yellow:      #f39c12;
-    --red:         #e74c3c;
-    --gray:        #6b7280;
+    /* Layout */
+    --sidebar-w:    170px;
+    --topbar-h:     60px;
+    --radius-sm:    4px;
+    --radius-md:    6px;
+    --radius-lg:    10px;
 
-    /* ── Typography ── */
-    --font:        'Mulish', Arial, sans-serif;
-    --font-display:'Playfair Display', serif;
-
-    /* ── Font Sizes ── */
-    --fs-xs:   11px;
-    --fs-sm:   12px;
-    --fs-base: 13px;
-    --fs-md:   14px;
-    --fs-lg:   15px;
-    --fs-xl:   18px;
-    --fs-2xl:  22px;
-    --fs-3xl:  28px;
-
-    /* ── Border Radius ── */
-    --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 10px;
-    --radius-xl: 12px;
-
-    /* ── Shadows ── */
-    --shadow:    0 2px 10px rgba(0,0,0,0.08);
-    --shadow-lg: 0 10px 40px rgba(0,0,0,0.2);
+    /* Transitions */
+    --transition:   0.22s ease;
 }

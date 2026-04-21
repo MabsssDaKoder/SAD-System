@@ -1,0 +1,417 @@
+    /* ═══════════════════════════════════════
+    BRANCH MANAGEMENT — branch.css
+    Place in: public/css/staff/branch.css
+    ═══════════════════════════════════════ */
+
+    /* ─────────────────────────────
+    PAGE HEADER
+    ───────────────────────────── */
+    .page-header {
+        margin-bottom: 24px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #1a2a3a;
+        margin-bottom: 4px;
+    }
+
+    .page-header p {
+        font-size: 13px;
+        color: #777;
+    }
+
+    /* ─────────────────────────────
+    BRANCH CARDS GRID
+    ───────────────────────────── */
+    .branch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .branch-card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .branch-card-header {
+        background: #1a2a3a;
+        color: white;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .branch-icon {
+        font-size: 20px;
+    }
+
+    .branch-name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .branch-card-body {
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+    }
+
+    .branch-info-row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .info-label {
+        font-size: 11px;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 14px;
+        color: #1a2a3a;
+        font-weight: 500;
+    }
+
+    .branch-card-actions {
+        padding: 12px 20px 16px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .btn-view-branch {
+        width: 100%;
+        padding: 10px;
+        background: #1a2a3a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+    .btn-view-branch:hover {
+        background: #2d3f5a;
+    }
+
+    /* ─────────────────────────────
+    MODAL OVERLAY
+    ───────────────────────────── */
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        padding: 20px;
+    }
+
+    .modal-overlay.hidden {
+        display: none;
+    }
+
+    /* ─────────────────────────────
+    MODAL BOX
+    ───────────────────────────── */
+    .modal-box {
+        background: #1a2a3a;
+        border-radius: 14px;
+        width: 100%;
+        max-width: 400px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+    }
+
+    .modal-box--wide {
+        max-width: 500px;
+    }
+
+    /* HEADER */
+    .modal-header {
+        background: #152030;
+        padding: 18px 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .modal-header h2 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        font-style: italic;
+        margin: 0;
+    }
+
+    /* BODY */
+    .modal-body {
+        padding: 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* FOOTER */
+    .modal-footer {
+        padding: 16px 24px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ─────────────────────────────
+    BRANCH INFO BLOCKS (Modal 1)
+    ───────────────────────────── */
+    .info-block {
+        background: rgba(255,255,255,0.07);
+        border-radius: 8px;
+        padding: 10px 14px;
+    }
+
+    .info-block-label {
+        font-size: 11px;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .info-block-value {
+        font-size: 14px;
+        color: #fff;
+        font-weight: 500;
+    }
+
+    /* ─────────────────────────────
+    FORM ELEMENTS (Modal 2)
+    ───────────────────────────── */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .form-label {
+        font-size: 12px;
+        color: rgba(255,255,255,0.65);
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .form-input {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 13px;
+        color: #fff;
+        outline: none;
+        transition: border-color 0.15s, background 0.15s;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-input::placeholder {
+        color: rgba(255,255,255,0.3);
+    }
+
+    .form-input:focus {
+        border-color: #3b9bb5;
+        background: rgba(255,255,255,0.12);
+    }
+
+    /* ─────────────────────────────
+    LEADER SELECT BOX
+    ───────────────────────────── */
+    .leader-select-box {
+        position: relative;
+    }
+
+    .leader-select-trigger {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 13px;
+        color: rgba(255,255,255,0.5);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: border-color 0.15s;
+    }
+
+    .leader-select-trigger:hover {
+        border-color: #3b9bb5;
+    }
+
+    .leader-select-trigger.selected {
+        color: #fff;
+    }
+
+    .leader-chevron {
+        font-size: 12px;
+        color: rgba(255,255,255,0.4);
+    }
+
+    /* DROPDOWN */
+    .leader-dropdown {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        background: #1e3045;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 10px;
+        padding: 10px;
+        z-index: 10;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .leader-dropdown.hidden {
+        display: none;
+    }
+
+    /* LEADER GRID */
+    .leader-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .leader-option {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 6px;
+        padding: 8px 10px;
+        font-size: 12px;
+        color: rgba(255,255,255,0.8);
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.15s, color 0.15s;
+        font-weight: 500;
+    }
+
+    .leader-option:hover {
+        background: #2d7a8a;
+        color: #fff;
+        border-color: #2d7a8a;
+    }
+
+    .leader-option.active {
+        background: #2d7a8a;
+        color: #fff;
+        border-color: #2d7a8a;
+    }
+
+    /* ─────────────────────────────
+    MODAL BUTTONS
+    ───────────────────────────── */
+    .btn-modal-edit {
+        background: #2d7a8a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 24px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+    .btn-modal-edit:hover {
+        background: #245f6e;
+    }
+
+    .btn-modal-close {
+        background: rgba(255,255,255,0.1);
+        color: rgba(255,255,255,0.8);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        padding: 10px 24px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+    .btn-modal-close:hover {
+        background: rgba(255,255,255,0.18);
+    }
+
+    .btn-modal-confirm {
+        background: #2d7a8a;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 24px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+    .btn-modal-confirm:hover {
+        background: #245f6e;
+    }
+
+    /* ─────────────────────────────
+    RESPONSIVE
+    ───────────────────────────── */
+    @media (max-width: 600px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .modal-box,
+        .modal-box--wide {
+            max-width: 100%;
+        }
+
+        .branch-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    .page-actions {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-create-branch {
+    background: #2d7a8a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-create-branch:hover {
+    background: #245f6e;
+}

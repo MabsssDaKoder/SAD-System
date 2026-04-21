@@ -1,76 +1,77 @@
-.page-title {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #1a2a3a;
-}
+/* ═══════════════════════════════════════════
+   WashDepot — shop-management.css (Responsive)
+   Place in: public/css/admin/shop-management.css
+═══════════════════════════════════════════ */
 
 .shop-card {
-    background: white;
-    border-radius: 12px;
+    background: var(--white);
+    border-radius: var(--radius-xl);
     padding: 30px;
     max-width: 700px;
     margin: 0 auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow);
 }
 
 .section-title {
     text-align: center;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: var(--fs-lg);
+    font-weight: 700;
     margin: 16px 0 14px;
-    color: #333;
+    color: var(--text-mid);
+    font-family: var(--font);
 }
 
-/* Field Row */
+/* ── Field Row ── */
 .field-row {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .field-row label {
     width: 160px;
     text-align: right;
-    font-size: 13px;
-    color: #333;
+    font-size: var(--fs-base);
+    color: var(--text-mid);
     flex-shrink: 0;
+    font-family: var(--font);
 }
 
 .field-row input {
     width: 120px;
     padding: 7px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-base);
+    font-family: var(--font);
     outline: none;
 }
 
-/* Addons Section */
+.field-row input:focus { border-color: var(--teal); }
+
+/* ── Addons Section ── */
 .addons-section {
-    background: #e8f0f7;
-    border-radius: 10px;
+    background: var(--bg-muted);
+    border-radius: var(--radius-lg);
     padding: 20px;
     margin-top: 16px;
 }
 
-/* Addons Form */
 .addons-form {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    background: #d5e5f5;
-    border-radius: 8px;
+    background: var(--bg-soft);
+    border-radius: var(--radius-lg);
     padding: 16px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.addons-form-left {
-    flex: 1;
-}
+.addons-form-left { flex: 1; min-width: 200px; }
 
 .addons-form-right {
     display: flex;
@@ -78,87 +79,65 @@
     gap: 8px;
 }
 
-/* Disabled inputs */
-.addon-input:disabled {
-    background: #e9ecef;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
+/* ── Addon Inputs ── */
+.addon-input:disabled { background: var(--bg); cursor: not-allowed; opacity: 0.6; }
+.addon-input:enabled  { background: var(--white); }
+.addon-input:focus    { border-color: var(--teal); outline: none; }
 
-.addon-input:enabled {
-    background: white;
-}
-
-/* Category Buttons */
-.category-btns {
-    display: flex;
-    gap: 8px;
-}
+/* ── Category Buttons ── */
+.category-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 
 .cat-btn {
     padding: 7px 14px;
     border: none;
-    border-radius: 6px;
-    font-size: 12px;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
     cursor: pointer;
-    background: #2563eb;
-    color: white;
-    font-weight: bold;
+    background: var(--blue-bright);
+    color: var(--text-white);
+    font-weight: 700;
     transition: opacity 0.2s;
 }
 
-.cat-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
+.cat-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.cat-btn.active:not(:disabled) { background: var(--blue-hover); outline: 2px solid var(--mist); }
 
-.cat-btn.active:not(:disabled) {
-    background: #1d4ed8;
-    outline: 2px solid #93c5fd;
-}
-
-/* Action Buttons */
+/* ── Action Buttons ── */
 .action-btn {
     padding: 8px 20px;
     border: none;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: bold;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    font-family: var(--font);
     cursor: pointer;
-    color: white;
+    color: var(--text-white);
     width: 80px;
-    background: #2563eb;
+    background: var(--blue-bright);
     transition: opacity 0.2s;
 }
 
-.action-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
+.action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.action-btn:not(:disabled):hover { opacity: 0.85; }
 
-.action-btn:not(:disabled):hover {
-    opacity: 0.85;
-}
-
-/* Addon Cards */
+/* ── Addon Cards ── */
 .addon-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
 
-.addon-card {
-    border-radius: 10px;
-    overflow: hidden;
-}
+.addon-card { border-radius: var(--radius-lg); overflow: hidden; }
 
 .addon-card-header {
-    background: #1a2a3a;
-    color: white;
+    background: var(--navy-mid);
+    color: var(--text-white);
     padding: 10px 16px;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: var(--fs-base);
+    font-weight: 700;
     text-align: center;
+    font-family: var(--font);
 }
 
 .addon-card-body {
@@ -170,49 +149,115 @@
     gap: 8px;
 }
 
-/* Addon Item inside card */
 .addon-item {
-    background: white;
-    border-radius: 6px;
+    background: var(--white);
+    border-radius: var(--radius-md);
     padding: 8px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
+    font-size: var(--fs-base);
+    font-family: var(--font);
 }
 
-.addon-item span { font-weight: bold; }
-.addon-item small { color: #555; }
+.addon-item span { font-weight: 700; }
+.addon-item small { color: var(--text-muted); }
 
-/* Bottom Buttons */
+/* ── Bottom Buttons ── */
 .btn-row {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 24px;
+    flex-wrap: wrap;
 }
 
 .btn-save {
     padding: 10px 30px;
-    background: #2563eb;
-    color: white;
+    background: var(--blue-bright);
+    color: var(--text-white);
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    font-family: var(--font);
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-.btn-save:hover { background: #1d4ed8; }
+.btn-save:hover { background: var(--blue-hover); }
 
 .btn-cancel {
     padding: 10px 30px;
-    background: #6b7280;
-    color: white;
+    background: var(--gray);
+    color: var(--text-white);
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-md);
+    font-family: var(--font);
     cursor: pointer;
+    transition: opacity 0.2s;
 }
 
-.btn-cancel:hover { background: #4b5563; }
+.btn-cancel:hover { opacity: 0.85; }
+
+/* ══════════════════════════════════════════
+   TABLET
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .shop-card { padding: 20px; }
+
+    .field-row label {
+        width: 130px;
+        font-size: var(--fs-sm);
+    }
+}
+
+/* ══════════════════════════════════════════
+   MOBILE
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .shop-card { padding: 16px; border-radius: var(--radius-lg); }
+
+    .field-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .field-row label {
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .field-row input { width: 100%; }
+
+    .addons-form {
+        flex-direction: column;
+    }
+
+    .addons-form-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .action-btn { flex: 1; width: auto; }
+
+    .addon-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-row {
+        justify-content: stretch;
+    }
+
+    .btn-save,
+    .btn-cancel {
+        flex: 1;
+        text-align: center;
+    }
+
+    .category-btns { flex-direction: column; }
+    .cat-btn { width: 100%; text-align: center; }
+}

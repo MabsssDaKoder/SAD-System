@@ -1,9 +1,9 @@
-@extends('admin.admin-layout')
+@extends('staff.staff-layout')
 
 @section('title', 'Inventory Management')
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/admin/inventory-management.css') }}">
+<link rel="stylesheet" href="{{ asset('css/staff/inventory.css') }}">
 @endsection
 
 @section('content')

@@ -1,9 +1,9 @@
-@extends('staff.staff-layout')
+@extends('admin.admin-layout')
 
 @section('title', 'New Laundry Service')
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/staff/new-laundry.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/new-laundry.css') }}">
 @endsection
 
 @section('content')
@@ -41,7 +41,7 @@
         </div>
 
         <div class="input-group" style="margin-top:16px;">
-            <label>Receive Type</label>
+            <label>Service Type</label>
             <div class="service-type-grid">
                 <button class="service-btn active" id="btn-ordinary"
                     onclick="setService('ordinary')">
@@ -53,41 +53,6 @@
                     <span class="service-title">Rush</span>
                     <span class="service-sub">Priority processing</span>
                 </button>
-            </div>
-        </div>
-
-        <div class="input-group" style="margin-top:16px;">
-            <label>Service Type</label>
-            <div class="service-type-grid">
-                <button class="service-btn active" id="btn-wash"
-                    onclick="setServiceType('wash')">
-                    <span class="service-title">Wash</span>
-                    <span class="service-sub">Washing service only</span>
-                </button>
-                <button class="service-btn" id="btn-dry"
-                    onclick="setServiceType('dry')">
-                    <span class="service-title">Dry</span>
-                    <span class="service-sub">Drying service only</span>
-                </button>
-                <button class="service-btn" id="btn-fold"
-                    onclick="setServiceType('fold')">
-                    <span class="service-title">Fold</span>
-                    <span class="service-sub">Folding service only</span>
-                </button>
-                <button class="service-btn" id="btn-self"
-                    onclick="setServiceType('self')">
-                    <span class="service-title">Self Service</span>
-                    <span class="service-sub">Use machines yourself</span>
-                </button>
-            </div>
-            <div class="pricing-info" style="margin-top:12px; padding:12px; background:#f5f5f5; border-radius:6px;">
-                <p style="margin:0; font-size:13px; color:#666;">
-                    <strong>Pricing Guide:</strong><br>
-                    • Wash: ₱50/kg<br>
-                    • Dry: ₱35/kg<br>
-                    • Fold: ₱20/kg<br>
-                    • Self Service: ₱15/kg
-                </p>
             </div>
         </div>
 

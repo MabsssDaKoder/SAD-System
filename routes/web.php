@@ -6,13 +6,16 @@ use App\Http\Controllers\LaundryController;
 
 
 // ── Login ────────────────────────────────────────────────────────────────────
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('login');
 });
 
 // ── Admin ────────────────────────────────────────────────────────────────────
 Route::get('/admin/shop-management', function () {
     return view('admin.shop-management');
+});
+Route::get('/admin/branch-management', function () {
+    return view('admin.branch-management');
 });
 Route::get('/admin/update-template', function () {
     return view('admin.update-template');
@@ -26,7 +29,12 @@ Route::get('/admin/reports', function () {
 Route::get('/admin/account-management', function () {
     return view('admin.account-management');
 });
-
+Route::get('/admin/new-laundry', function () {
+    return view('admin.new-laundry');
+});
+Route::get('/admin/queue', function () {
+    return view('admin.queue');
+});
 // ── Public Queue ─────────────────────────────────────────────────────────────
 Route::get('/queue-status',      [LaundryController::class, 'publicQueue'])->name('public.queue');
 Route::get('/queue/json', [LaundryController::class, 'publicOrdersJson'])->name('public.queue.json');

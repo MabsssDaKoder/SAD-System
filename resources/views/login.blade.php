@@ -200,4 +200,37 @@
     </div>
 
 </body>
+<script>
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const email = document.querySelector("input[name='email']").value;
+        const password = document.querySelector("input[name='password']").value;
+
+        // credentials
+        const users = [
+            { email: "Admin@washdepot.com", password: "Pass1234", role: "admin" },
+            { email: "Staff@washdepot.com", password: "Pass1234", role: "staff" }
+        ];
+
+        const validUser = users.find(user => 
+            user.email === email && user.password === password
+        );
+
+        if (validUser) {
+            alert("Login successful as " + validUser.role);
+
+            // redirect example
+            if (validUser.role === "admin") {
+                window.location.href = "/admin/shop-management";
+            } else {
+                window.location.href = "/staff/new-laundry";
+            }
+        } else {
+            alert("Invalid email or password");
+        }
+    });
+</script>
 </html>

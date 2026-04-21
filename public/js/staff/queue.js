@@ -22,6 +22,25 @@ async function fetchOrders() {
     }
 }
 
+// ── Cancel a pending order ────────────────────────────
+async function cancelService(id) {
+    if (!confirm('Cancel this order? This cannot be undone.')) return;
+
+    const csrf = document.querySelector('meta[name="csrf-token"]').content;
+    try {
+        await fetch(`/staff/laundry/${id}/cancel`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrf,
+            },
+        });
+        fetchOrders();   // immediate refresh
+    } catch (err) {
+        console.error('Cancel failed:', err);
+    }
+}
+
 // ── Render all three columns ─────────────────────────
 function renderBoard(orders) {
     const columns = { pending: [], processing: [], complete: [] };
@@ -81,22 +100,29 @@ function cardHTML(o) {
 // ── Action buttons per status ─────────────────────────
 function actionsFor(o) {
     if (o.status === 'pending') {
-        return `<button class="btn-action btn-process"
-                    onclick="updateStatus(${o.id}, 'processing')">
-                    Start Processing
-                </button>`;
+        return `
+            <button class="btn-action btn-process"
+                onclick="updateStatus(${o.id}, 'processing')">
+                ▶ Start Processing
+            </button>
+            <button class="btn-cancel"
+                onclick="cancelService(${o.id})">
+                ✕ Cancel
+            </button>`;
     }
     if (o.status === 'processing') {
-        return `<button class="btn-action btn-complete"
-                    onclick="updateStatus(${o.id}, 'complete')">
-                    Mark Complete
-                </button>`;
+        return `
+            <button class="btn-action btn-complete"
+                onclick="updateStatus(${o.id}, 'complete')">
+                ✔ Mark Complete
+            </button>`;
     }
     if (o.status === 'complete') {
-        return `<button class="btn-action btn-sms"
-                    onclick="openSMS(${o.id}, '${o.contact}', '${o.name}')">
-                    📱 SMS Customer
-                </button>`;
+        return `
+            <button class="btn-action btn-sms"
+                onclick="openSMS(${o.id}, '${o.contact}', '${o.name}')">
+                📱 SMS Customer
+            </button>`;
     }
     return '';
 }

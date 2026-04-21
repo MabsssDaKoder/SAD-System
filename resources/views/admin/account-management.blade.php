@@ -20,7 +20,6 @@
 
             <div class="toolbar">
                 <input type="text" class="search-input" placeholder="Search...">
-                <button class="btn-teams" onclick="openTeamsModal()">Teams</button>
                 <button class="btn-create" onclick="openCreateAccount()">Create Account</button>
             </div>
 
@@ -30,7 +29,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Role</th>
-                            <th>Team</th>
+                            <th>Branch</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -39,7 +38,7 @@
                         <tr>
                             <td>Joana Mae Peras</td>
                             <td>Leader</td>
-                            <td>Team A</td>
+                            <td>Branch A</td>
                             <td><span class="status active">Active</span></td>
                             <td>
                                 <button class="btn-action edit">Edit</button>
@@ -49,7 +48,7 @@
                         <tr>
                             <td>Jinky Holans</td>
                             <td>Member</td>
-                            <td>Team A</td>
+                            <td>Branch A</td>
                             <td><span class="status inactive">Inactive</span></td>
                             <td>
                                 <button class="btn-action edit">Edit</button>
@@ -62,20 +61,7 @@
 
         </div>
 
-        {{-- Team Management --}}
-        <div class="team-card">
-            <div class="team-header">
-                <span>Team Management</span>
-                <button class="btn-create-team" onclick="openCreateTeam()">Create Team</button>
-            </div>
-
-            <div class="team-list" id="team-list">
-                <div class="team-item active">
-                    <span class="team-name">Joana Mae Peras</span>
-                    <span class="team-role">Team Leader</span>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -147,45 +133,7 @@
     </div>
 </div>
 
-{{-- ==================== CREATE TEAM MODAL ==================== --}}
-<div class="modal-overlay hidden" id="createTeamModal">
-    <div class="modal-card">
 
-        <!-- <h3 class="modal-title">Create Team</h3> -->
-
-<h3 id="modal-team-title" class="modal-title">Create Team</h3>        <div class="field-row">
-            <label>Team Name:</label>
-            <input type="text" id="team_name" style="flex:1;">
-        </div>
-
-        <div class="field-row">
-            <button class="btn-role-label">Team Leader</button>
-            <input type="text" id="team_leader" placeholder="Staff list" style="flex:1;">
-        </div>
-
-        <div class="field-row">
-            <button class="btn-role-label">Add Member</button>
-            <input type="text" id="team_member" placeholder="Staff list" style="flex:1;">
-        </div>
-
-        {{-- Member List --}}
-        <div class="member-list-box">
-            <div class="member-list-header">Member List</div>
-            <div class="member-list-body" id="member-list">
-                <div class="member-slot"></div>
-                <div class="member-slot"></div>
-                <div class="member-slot"></div>
-                <div class="member-slot"></div>
-            </div>
-        </div>
-
-        <div class="modal-btns">
-            <button class="btn-confirm" onclick="confirmTeam()">Confirm</button>
-            <button class="btn-cancel" onclick="closeCreateTeam()">Cancel</button>
-        </div>
-
-    </div>
-</div>
 
 <script src="{{ asset('js/admin/account-management.js') }}"></script>
 @endsection

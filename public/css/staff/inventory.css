@@ -1,6 +1,5 @@
 /* ═══════════════════════════════════════════
-   WashDepot — inventory-management.css (Responsive)
-   Place in: public/css/admin/inventory-management.css
+   WashDepot — inventory-management.css (Responsive FIXED)
 ═══════════════════════════════════════════ */
 
 .inventory-card {
@@ -10,16 +9,18 @@
     margin-bottom: 20px;
 }
 
+/* ── Toolbar ── */
 .toolbar {
     display: flex;
     gap: 10px;
     margin-bottom: 16px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .search-input {
     flex: 1;
-    min-width: 150px;
+    min-width: 160px;
     padding: 10px 16px;
     border: none;
     border-radius: var(--radius-md);
@@ -44,30 +45,27 @@
 
 .btn-categories:hover { opacity: 0.85; }
 
-/* ── Table ── */
+/* ── TABLE WRAPPER ── */
 .table-wrapper {
     border-radius: var(--radius-lg);
-    overflow-y: auto;
     overflow-x: auto;
-    height: 300px;
+    overflow-y: auto;
+    height: 320px;
+    -webkit-overflow-scrolling: touch;
 }
 
+/* ── TABLE ── */
 .inventory-table {
     width: 100%;
-    min-width: 500px;
+    min-width: 600px;
     border-collapse: collapse;
     font-size: var(--fs-base);
     font-family: var(--font);
 }
 
-.empty-msg {
-    text-align: center;
-    color: var(--text-light);
-    padding: 30px;
-    font-size: var(--fs-base);
+.inventory-table thead tr {
+    background: transparent;
 }
-
-.inventory-table thead tr { background: transparent; }
 
 .inventory-table th {
     text-align: center;
@@ -78,8 +76,13 @@
     white-space: nowrap;
 }
 
-.inventory-table tbody tr { background: #2d4a6a; }
-.inventory-table tbody tr:nth-child(even) { background: #263d57; }
+.inventory-table tbody tr {
+    background: #2d4a6a;
+}
+
+.inventory-table tbody tr:nth-child(even) {
+    background: #263d57;
+}
 
 .inventory-table td {
     padding: 14px 10px;
@@ -93,6 +96,15 @@
     border-bottom: 4px solid var(--navy-light);
 }
 
+/* ── Empty State ── */
+.empty-msg {
+    text-align: center;
+    color: var(--text-light);
+    padding: 30px;
+    font-size: var(--fs-base);
+}
+
+/* ── Status UI ── */
 .alert-icon {
     display: inline-flex;
     align-items: center;
@@ -116,10 +128,11 @@
     font-family: var(--font);
 }
 
-.status.good       { background: var(--green); }
-.status.reorder    { background: var(--yellow); }
+.status.good { background: var(--green); }
+.status.reorder { background: var(--yellow); }
 .status.outofstock { background: var(--red); }
 
+/* ── Buttons ── */
 .btn-notify {
     padding: 6px 16px;
     background: var(--blue-bright);
@@ -134,9 +147,11 @@
     white-space: nowrap;
 }
 
-.btn-notify:hover { background: var(--blue-hover); }
+.btn-notify:hover {
+    background: var(--blue-hover);
+}
 
-/* ── Item Form Section ── */
+/* ── FORM SECTION ── */
 .item-form-section {
     display: flex;
     gap: 20px;
@@ -167,10 +182,19 @@
     transition: opacity 0.2s;
 }
 
-.action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.action-btn:not(:disabled):hover { opacity: 0.85; }
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
-.item-form { flex: 1; min-width: 200px; }
+.action-btn:not(:disabled):hover {
+    opacity: 0.85;
+}
+
+.item-form {
+    flex: 1;
+    min-width: 220px;
+}
 
 .form-title {
     font-size: var(--fs-lg);
@@ -180,6 +204,7 @@
     font-family: var(--font);
 }
 
+/* ── FIELD ROW ── */
 .field-row {
     display: flex;
     align-items: center;
@@ -206,10 +231,22 @@
     outline: none;
 }
 
-.form-input:focus { border-color: var(--teal); }
-.form-input:disabled { background: var(--bg); cursor: not-allowed; opacity: 0.6; }
+.form-input:focus {
+    border-color: var(--teal);
+}
 
-.category-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.form-input:disabled {
+    background: var(--bg);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ── CATEGORY BUTTONS ── */
+.category-btns {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
 
 .cat-btn {
     padding: 7px 14px;
@@ -224,27 +261,51 @@
     transition: opacity 0.2s;
 }
 
-.cat-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.cat-btn.active:not(:disabled) { background: var(--blue-hover); outline: 2px solid var(--mist); }
-
-/* ══════════════════════════════════════════
-   TABLET
-══════════════════════════════════════════ */
-@media (max-width: 1024px) {
-    .inventory-card { padding: 16px; }
-    .item-form-section { padding: 16px; }
+.cat-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
-/* ══════════════════════════════════════════
-   MOBILE
-══════════════════════════════════════════ */
-@media (max-width: 768px) {
-    .inventory-card { padding: 12px; border-radius: var(--radius-lg); }
+.cat-btn.active:not(:disabled) {
+    background: var(--blue-hover);
+    outline: 2px solid var(--mist);
+}
 
-    .table-wrapper { height: 220px; }
+/* ═══════════════════════════════════════
+   TABLET
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .inventory-card {
+        padding: 16px;
+    }
+
+    .item-form-section {
+        padding: 16px;
+    }
+
+    .inventory-table {
+        min-width: 700px;
+    }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .inventory-card {
+        padding: 12px;
+        border-radius: var(--radius-lg);
+    }
+
+    .table-wrapper {
+        height: 240px;
+    }
 
     .inventory-table th,
-    .inventory-table td { font-size: var(--fs-sm); padding: 10px 8px; }
+    .inventory-table td {
+        font-size: var(--fs-sm);
+        padding: 10px 8px;
+    }
 
     .item-form-section {
         flex-direction: column;
@@ -255,18 +316,53 @@
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
-        gap: 8px;
     }
 
-    .action-btn { flex: 1; width: auto; min-width: 60px; }
+    .action-btn {
+        flex: 1;
+        width: auto;
+        min-width: 70px;
+    }
 
     .field-row {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .field-row label { width: 100%; font-weight: 600; }
-    .form-input { width: 100%; }
-    .category-btns { flex-direction: column; width: 100%; }
-    .cat-btn { width: 100%; text-align: center; }
+    .field-row label {
+        width: 100%;
+        font-weight: 600;
+    }
+
+    .form-input {
+        width: 100%;
+    }
+
+    .category-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cat-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ═══════════════════════════════════════
+   SMALL MOBILE
+═══════════════════════════════════════ */
+@media (max-width: 480px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .btn-categories {
+        width: 100%;
+    }
 }
