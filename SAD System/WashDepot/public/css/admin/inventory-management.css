@@ -1,0 +1,226 @@
+/* ═══════════════════════════════════════════
+   WashDepot — inventory-management.css
+   Place in: public/css/admin/inventory-management.css
+═══════════════════════════════════════════ */
+
+/* ── Inventory Card ── */
+.inventory-card {
+    background: var(--navy-light);
+    border-radius: var(--radius-xl);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    font-family: var(--font);
+    outline: none;
+    background: var(--white);
+}
+
+.btn-categories {
+    padding: 10px 20px;
+    background: var(--navy-mid);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-categories:hover { opacity: 0.85; }
+
+/* ── Table ── */
+.table-wrapper {
+    border-radius: var(--radius-lg);
+    overflow-y: auto;
+    height: 300px;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-base);
+    font-family: var(--font);
+}
+
+.empty-msg {
+    text-align: center;
+    color: var(--text-light);
+    padding: 30px;
+    font-size: var(--fs-base);
+}
+
+.inventory-table thead tr { background: transparent; }
+
+.inventory-table th {
+    text-align: center;
+    padding: 10px;
+    color: var(--text-light);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+}
+
+.inventory-table tbody tr { background: #2d4a6a; margin-bottom: 6px; }
+.inventory-table tbody tr:nth-child(even) { background: #263d57; }
+
+.inventory-table td {
+    padding: 14px 10px;
+    text-align: center;
+    color: var(--text-white);
+    font-size: var(--fs-base);
+}
+
+.inventory-table tbody tr:not(:last-child) td {
+    border-bottom: 4px solid var(--navy-light);
+}
+
+/* ── Alert Row ── */
+.alert-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: var(--text-white);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+/* ── Status Badges ── */
+.status {
+    padding: 5px 14px;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--text-white);
+    font-family: var(--font);
+}
+
+.status.good       { background: var(--green); }
+.status.reorder    { background: var(--yellow); }
+.status.outofstock { background: var(--red); }
+
+/* ── Notify Button ── */
+.btn-notify {
+    padding: 6px 16px;
+    background: var(--blue-bright);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.btn-notify:hover { background: var(--blue-hover); }
+
+/* ── Item Form Section ── */
+.item-form-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 20px;
+}
+
+.form-action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 8px 20px;
+    background: var(--blue-bright);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    width: 80px;
+    transition: opacity 0.2s;
+}
+
+.action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.action-btn:not(:disabled):hover { opacity: 0.85; }
+
+/* ── Item Form ── */
+.item-form { flex: 1; }
+
+.form-title {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+    font-family: var(--font);
+}
+
+.field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.field-row label {
+    width: 140px;
+    font-size: var(--fs-base);
+    color: var(--text-mid);
+    flex-shrink: 0;
+    font-family: var(--font);
+}
+
+.form-input {
+    width: 140px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-base);
+    font-family: var(--font);
+    outline: none;
+}
+
+.form-input:focus { border-color: var(--teal); }
+.form-input:disabled { background: var(--bg); cursor: not-allowed; opacity: 0.6; }
+
+/* ── Category Buttons ── */
+.category-btns { display: flex; gap: 8px; }
+
+.cat-btn {
+    padding: 7px 14px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
+    cursor: pointer;
+    background: var(--blue-bright);
+    color: var(--text-white);
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+
+.cat-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.cat-btn.active:not(:disabled) { background: var(--blue-hover); outline: 2px solid var(--mist); }

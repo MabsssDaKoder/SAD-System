@@ -1,0 +1,336 @@
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #1a2a3a;
+    margin-bottom: 4px;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #777;
+}
+
+.sections-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 750px;
+}
+
+/* Section Card */
+.section-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.section-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a2a3a;
+    margin-bottom: 20px;
+}
+
+/* Two Col */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    padding: 12px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: #fafafa;
+}
+
+.input-group input:focus {
+    border-color: #2d8a8a;
+    background: white;
+}
+
+/* Service Type */
+.service-type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.service-btn {
+    padding: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.service-btn.active {
+    border-color: #2d8a8a;
+    background: #f0fafa;
+}
+
+.service-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1a2a3a;
+}
+
+.service-sub {
+    font-size: 12px;
+    color: #777;
+}
+
+.time-input {
+    padding: 12px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 200px;
+}
+
+/* Addons */
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.addon-item {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s;
+}
+
+.addon-item.selected {
+    border-color: #2d8a8a;
+    background: #f0fafa;
+}
+
+.addon-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a2a3a;
+}
+
+.addon-type {
+    font-size: 12px;
+    color: #777;
+}
+
+.addon-price {
+    display: inline-block;
+    background: #2d8a8a;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+/* Summary */
+.summary-card {
+    background: #f0fafa !important;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.summary-divider {
+    border-top: 1px solid #ddd;
+    margin: 12px 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a2a3a;
+}
+
+#total-display { color: #2d8a8a; }
+
+/* Bottom Buttons */
+.bottom-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    max-width: 750px;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.btn-cancel-form {
+    padding: 14px 32px;
+    background: white;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-generate {
+    padding: 14px 32px;
+    background: #1a2a3a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-overlay.hidden { display: none; }
+
+/* Receipt */
+.receipt-card {
+    background: #e8edf2;
+    border-radius: 12px;
+    padding: 24px;
+    width: 560px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 16px;
+    border: 2px solid #2563eb;
+}
+
+.receipt-left h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a2a3a;
+    margin-bottom: 8px;
+}
+
+.receipt-msg {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.receipt-divider {
+    border-top: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+
+.receipt-info p {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.receipt-info strong { color: #1a2a3a; }
+
+.receipt-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.receipt-qr-box {
+    border: 3px solid #1a2a3a;
+    padding: 8px;
+    border-radius: 4px;
+    background: white;
+}
+
+.receipt-qr-code {
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    border-top: 2px solid #1a2a3a;
+    padding-top: 4px;
+    width: 100%;
+}
+
+.receipt-queue-num {
+    font-size: 40px;
+    font-weight: bold;
+    color: #1a2a3a;
+}
+
+.receipt-queue-label {
+    font-size: 12px;
+    color: #555;
+}
+
+.receipt-footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding-top: 14px;
+}
+
+.view-queue-link {
+    color: #2563eb;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-confirm-receipt {
+    padding: 10px 28px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}

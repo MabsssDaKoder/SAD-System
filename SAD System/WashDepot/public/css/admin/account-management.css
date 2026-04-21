@@ -1,0 +1,405 @@
+/* ═══════════════════════════════════════════
+   WashDepot — account-management.css
+   Place in: public/css/admin/account-management.css
+═══════════════════════════════════════════ */
+
+.accounts-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ── Table Card ── */
+.table-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    font-family: var(--font);
+    outline: none;
+}
+
+.search-input:focus { border-color: var(--teal); }
+
+.btn-teams,
+.btn-create {
+    padding: 10px 20px;
+    background: var(--navy-mid);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-teams:hover,
+.btn-create:hover { opacity: 0.85; }
+
+/* ── Table ── */
+.table-wrapper {
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-base);
+    font-family: var(--font);
+}
+
+.staff-table thead tr { background: var(--navy-mid); color: var(--text-white); }
+
+.staff-table th {
+    padding: 12px 10px;
+    text-align: center;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+}
+
+.staff-table td {
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-base);
+}
+
+.staff-table tbody tr:hover { background: var(--bg); }
+
+/* ── Status ── */
+.status {
+    padding: 5px 14px;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--text-white);
+    font-family: var(--font);
+}
+
+.status.active   { background: var(--green); }
+.status.inactive { background: var(--gray); }
+
+/* ── Action Buttons ── */
+.btn-action {
+    padding: 5px 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
+    cursor: pointer;
+    color: var(--text-white);
+    margin: 2px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-action:hover { opacity: 0.85; }
+.btn-action.edit   { background: var(--blue-bright); }
+.btn-action.delete { background: var(--red); }
+
+/* ── Team Card ── */
+.team-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy-mid);
+    color: var(--text-white);
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 14px;
+    font-size: var(--fs-md);
+    font-weight: 700;
+}
+
+.btn-create-team {
+    padding: 6px 16px;
+    background: var(--gray);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-create-team:hover { opacity: 0.85; }
+
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 120px;
+    background: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+}
+
+.team-item {
+    background: var(--navy-mid);
+    color: var(--text-white);
+    border-radius: var(--radius-lg);
+    padding: 12px 16px;
+    min-width: 140px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.team-item.active { background: var(--blue); }
+
+.team-name {
+    display: block;
+    font-size: var(--fs-base);
+    font-weight: 700;
+}
+
+.team-role {
+    display: block;
+    font-size: var(--fs-xs);
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 30px;
+    width: 440px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-title {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+    font-family: var(--font);
+}
+
+.modal-section-label {
+    font-size: var(--fs-base);
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* ── Field Row ── */
+.field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.field-row label {
+    width: 150px;
+    font-size: var(--fs-base);
+    color: var(--text-mid);
+    flex-shrink: 0;
+    font-family: var(--font);
+}
+
+.field-row input[type="text"],
+.field-row input[type="date"],
+.field-row input[type="number"] {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-base);
+    font-family: var(--font);
+    outline: none;
+}
+
+.field-row input:focus { border-color: var(--teal); }
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--fs-base);
+    font-family: var(--font);
+    width: auto;
+    cursor: pointer;
+}
+
+/* ── Login Info ── */
+.login-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 10px;
+}
+
+.btn-generate {
+    padding: 7px 16px;
+    background: var(--navy-mid);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-generate:hover { opacity: 0.85; }
+
+.temp-account-box {
+    background: var(--bg-muted);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.temp-account-box h4 {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    text-align: center;
+    font-family: var(--font);
+}
+
+.temp-account-box .field-row label { width: 100px; }
+
+.temp-account-box span {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.temp-note {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    display: block;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.btn-role-label {
+    padding: 7px 14px;
+    background: var(--navy-mid);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-family: var(--font);
+    cursor: default;
+    white-space: nowrap;
+}
+
+/* ── Member List ── */
+.member-list-box {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.member-list-header {
+    background: var(--navy-mid);
+    color: var(--text-white);
+    padding: 10px 16px;
+    font-size: var(--fs-base);
+    font-weight: 700;
+    text-align: center;
+    font-family: var(--font);
+}
+
+.member-list-body {
+    background: var(--bg-muted);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.member-slot {
+    background: var(--bg-soft);
+    border-radius: var(--radius-sm);
+    height: 32px;
+}
+
+/* ── Modal Buttons ── */
+.modal-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.btn-confirm {
+    padding: 10px 30px;
+    background: var(--blue-bright);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-confirm:hover { background: var(--blue-hover); }
+
+.btn-cancel {
+    padding: 10px 30px;
+    background: var(--gray);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-md);
+    font-family: var(--font);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-cancel:hover { opacity: 0.85; }
