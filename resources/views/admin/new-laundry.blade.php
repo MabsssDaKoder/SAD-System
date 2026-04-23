@@ -13,7 +13,7 @@
     <p>Enter customer details and service preferences</p>
 </div>
 
-<div class="sections-wrapper">
+<div class="">
 
     {{-- Customer Information --}}
     <div class="section-card">

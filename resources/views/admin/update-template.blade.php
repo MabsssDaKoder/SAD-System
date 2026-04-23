@@ -10,7 +10,7 @@
 
 <div class="page-title">UpdateTemplate</div>
 
-<div class="template-card">
+<div class="">
 
     {{-- SMS Update --}}
     <div class="template-section">
