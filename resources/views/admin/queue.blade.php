@@ -69,5 +69,5 @@
     </div>
 </div>
 
-<script src="{{ asset('js/staff/queue.js') }}"></script>
+<script src="{{ asset('js/admin/queue.js') }}"></script>
 @endsection

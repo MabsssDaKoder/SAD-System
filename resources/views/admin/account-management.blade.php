@@ -4,6 +4,21 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/admin/account-management.css') }}">
+<style>
+    /* Clickable status badge */
+    .status.status-toggle {
+        cursor: pointer;
+        transition: opacity 0.15s, transform 0.1s;
+        user-select: none;
+    }
+    .status.status-toggle:hover {
+        opacity: 0.80;
+        transform: scale(1.06);
+    }
+    .status.status-toggle:active {
+        transform: scale(0.97);
+    }
+</style>
 @endsection
 
 @section('content')
@@ -35,44 +50,24 @@
                         </tr>
                     </thead>
                     <tbody id="staff-tbody">
-                        <tr>
-                            <td>Joana Mae Peras</td>
-                            <td>Leader</td>
-                            <td>Branch A</td>
-                            <td><span class="status active">Active</span></td>
-                            <td>
-                                <button class="btn-action edit">Edit</button>
-                                <button class="btn-action delete">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jinky Holans</td>
-                            <td>Member</td>
-                            <td>Branch A</td>
-                            <td><span class="status inactive">Inactive</span></td>
-                            <td>
-                                <button class="btn-action edit">Edit</button>
-                                <button class="btn-action delete">Delete</button>
-                            </td>
-                        </tr>
+                        {{-- Rows are rendered by JS --}}
                     </tbody>
                 </table>
             </div>
 
         </div>
 
-        
-
     </div>
 
 </div>
 
-{{-- ==================== CREATE ACCOUNT MODAL ==================== --}}
+{{-- ==================== CREATE / EDIT ACCOUNT MODAL ==================== --}}
 <div class="modal-overlay hidden" id="createAccountModal">
-    <div class="modal-card"> 
+    <div class="modal-card">
 
-        <!-- <h3 class="modal-title">Create New Account</h3> -->
-<h3 id="modal-account-title" class="modal-account-title">Create New Account</h3>        {{-- Personal Info --}}
+        <h3 id="modal-account-title" class="modal-account-title">Create New Account</h3>
+
+        {{-- Personal Info --}}
         <p class="modal-section-label">Staff's Personal Information</p>
 
         <div class="field-row">
@@ -132,8 +127,6 @@
 
     </div>
 </div>
-
-
 
 <script src="{{ asset('js/admin/account-management.js') }}"></script>
 @endsection

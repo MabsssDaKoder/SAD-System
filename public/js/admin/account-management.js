@@ -39,19 +39,110 @@ document.addEventListener('DOMContentLoaded', function () {
 
         filtered.forEach(staff => {
             const row = document.createElement('tr');
+
+            const statusLabel = staff.status === 'active' ? 'Active' : 'Inactive';
+            const statusClass = staff.status === 'active' ? 'active' : 'inactive';
+            const nextAction  = staff.status === 'active' ? 'deactivate' : 'activate';
+
             row.innerHTML = `
                 <td>${staff.firstName} ${staff.lastName}</td>
                 <td>${staff.role}</td>
                 <td>${staff.team}</td>
-                <td><span class="status ${staff.status}">
-                    ${staff.status === 'active' ? 'Active' : 'Inactive'}
-                </span></td>
+                <td>
+                    <span
+                        class="status ${statusClass}"
+                        style="cursor:pointer; user-select:none;"
+                        title="Click to ${nextAction} this account"
+                        onclick="toggleStatus(${staff.id})"
+                    >${statusLabel}</span>
+                </td>
                 <td>
                     <button class="btn-action edit"   onclick="openEditStaff(${staff.id})">Edit</button>
                     <button class="btn-action delete" onclick="deleteStaff(${staff.id})">Delete</button>
                 </td>`;
             tbody.appendChild(row);
         });
+    }
+
+    // ==========================================
+    // TOGGLE STATUS
+    // ==========================================
+    window.toggleStatus = function (id) {
+        const staff = staffList.find(s => s.id === id);
+        if (!staff) return;
+
+        const fullName    = `${staff.firstName} ${staff.lastName}`;
+        const isActive    = staff.status === 'active';
+        const newStatus   = isActive ? 'inactive' : 'active';
+        const actionLabel = isActive ? 'Deactivate' : 'Activate';
+        const accentColor = isActive ? '#e74c3c' : '#27ae60';
+        const icon        = isActive ? '🔒' : '✅';
+
+        showStatusConfirm(
+            `${actionLabel} Account`,
+            `Are you sure you want to set <strong>${fullName}</strong>'s account to <strong>${newStatus}</strong>?`,
+            accentColor,
+            icon,
+            function () {
+                staff.status = newStatus;
+                renderStaffTable();
+            }
+        );
+    };
+
+    // ==========================================
+    // CUSTOM CONFIRM MODAL
+    // ==========================================
+    function showStatusConfirm(title, message, accentColor, icon, onConfirm) {
+        const existing = document.getElementById('statusConfirmModal');
+        if (existing) existing.remove();
+
+        const overlay = document.createElement('div');
+        overlay.id = 'statusConfirmModal';
+        overlay.style.cssText = `
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 99999;
+        `;
+
+        overlay.innerHTML = `
+            <div style="
+                background: #fff; border-radius: 12px;
+                padding: 30px 28px 22px; width: 320px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                font-family: sans-serif; text-align: center;
+            ">
+                <div style="font-size:36px; margin-bottom:12px;">${icon}</div>
+                <div style="font-size:16px; font-weight:700; color:#1a1a2e; margin-bottom:10px;">${title}</div>
+                <div style="font-size:13px; color:#555; line-height:1.6; margin-bottom:22px;">${message}</div>
+                <div style="display:flex; gap:10px; justify-content:center;">
+                    <button id="scCancel" style="
+                        padding: 9px 24px; border-radius: 7px;
+                        border: none; background: #eee; color: #444;
+                        font-size: 13px; font-weight: 600; cursor: pointer;
+                    ">Cancel</button>
+                    <button id="scConfirm" style="
+                        padding: 9px 24px; border-radius: 7px;
+                        border: none; background: ${accentColor}; color: #fff;
+                        font-size: 13px; font-weight: 600; cursor: pointer;
+                    ">Confirm</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        document.getElementById('scConfirm').onclick = function () {
+            onConfirm();
+            overlay.remove();
+        };
+        document.getElementById('scCancel').onclick = function () {
+            overlay.remove();
+        };
+        overlay.onclick = function (e) {
+            if (e.target === overlay) overlay.remove();
+        };
     }
 
     // ==========================================
@@ -89,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.openCreateAccount = function () {
         editingStaffId = null;
 
-        // Reset fields
         document.getElementById('acc_first_name').value = '';
         document.getElementById('acc_last_name').value  = '';
         document.getElementById('acc_contact').value    = '';
@@ -101,11 +191,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('modal-account-title').textContent = 'Create New Account';
         document.getElementById('createAccountModal').classList.remove('hidden');
-    }
+    };
 
     window.closeCreateAccount = function () {
         document.getElementById('createAccountModal').classList.add('hidden');
-    }
+    };
 
     // ==========================================
     // OPEN EDIT STAFF
@@ -131,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('modal-account-title').textContent = 'Edit Account';
         document.getElementById('createAccountModal').classList.remove('hidden');
-    }
+    };
 
     // ==========================================
     // GENERATE ACCOUNT
@@ -150,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('gen_username').textContent = username;
         document.getElementById('gen_password').textContent = password;
-    }
+    };
 
     // ==========================================
     // CONFIRM ACCOUNT (Create or Update)
@@ -172,13 +262,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (editingStaffId) {
-            // UPDATE existing
             const idx = staffList.findIndex(s => s.id === editingStaffId);
             if (idx !== -1) {
                 staffList[idx] = { ...staffList[idx], firstName, lastName, contact, birthday, age, sex, username, password };
             }
         } else {
-            // CREATE new
             staffList.push({
                 id: Date.now(),
                 firstName, lastName, contact, birthday, age, sex,
@@ -192,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         renderStaffTable();
         closeCreateAccount();
-    }
+    };
 
     // ==========================================
     // DELETE STAFF
@@ -201,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!confirm('Are you sure you want to delete this staff?')) return;
         staffList = staffList.filter(s => s.id !== id);
         renderStaffTable();
-    }
+    };
 
     // ==========================================
     // OPEN CREATE TEAM
@@ -217,11 +305,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('createTeamModal').classList.remove('hidden');
         renderMemberList();
-    }
+    };
 
     window.closeCreateTeam = function () {
         document.getElementById('createTeamModal').classList.add('hidden');
-    }
+    };
 
     // ==========================================
     // OPEN EDIT TEAM
@@ -240,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('createTeamModal').classList.remove('hidden');
         renderMemberList();
-    }
+    };
 
     // ==========================================
     // ADD MEMBER TO TEMP LIST
@@ -253,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tempMembers.push(name);
         input.value = '';
         renderMemberList();
-    }
+    };
 
     // ==========================================
     // CONFIRM TEAM
@@ -278,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         renderTeamList();
         closeCreateTeam();
-    }
+    };
 
     // ==========================================
     // DELETE TEAM
@@ -287,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!confirm('Are you sure you want to delete this team?')) return;
         teams = teams.filter(t => t.id !== id);
         renderTeamList();
-    }
+    };
 
     // ==========================================
     // MEMBER LIST RENDER
@@ -314,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.removeMember = function (index) {
         tempMembers.splice(index, 1);
         renderMemberList();
-    }
+    };
 
     // ==========================================
     // SEARCH

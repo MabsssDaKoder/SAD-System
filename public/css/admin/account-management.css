@@ -403,3 +403,21 @@
 }
 
 .btn-cancel:hover { opacity: 0.85; }
+
+/* Add this to your account-management.css */
+
+/* Makes the status badge look and feel clickable */
+.status.status-toggle {
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    user-select: none;
+}
+
+.status.status-toggle:hover {
+    opacity: 0.80;
+    transform: scale(1.06);
+}
+
+.status.status-toggle:active {
+    transform: scale(0.97);
+}

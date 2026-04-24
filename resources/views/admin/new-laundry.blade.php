@@ -82,7 +82,7 @@
                     <span class="service-sub">₱30 / kg</span>
                 </button>
                 <button class="service-btn" id="btn-pull-package" onclick="setService('pull-package')">
-                    <span class="service-title">Pull Package</span>
+                    <span class="service-title">Full Package</span>
                     <span class="service-sub">₱60 / kg</span>
                 </button>
             </div>
